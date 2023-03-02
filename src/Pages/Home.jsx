@@ -1,7 +1,5 @@
 import classes from "./Home.module.css";
 import Header from "../components/Header";
-import { useContext } from "react";
-import { GlobalContext } from "../context/GlobalContext";
 import EmployeesList from "../components/EmployeesList";
 
 const Home = () => {
