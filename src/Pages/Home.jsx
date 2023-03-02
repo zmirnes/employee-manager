@@ -5,8 +5,6 @@ import { GlobalContext } from "../context/GlobalContext";
 import EmployeesList from "../components/EmployeesList";
 
 const Home = () => {
-  const ctx = useContext(GlobalContext);
-
   return (
     <div className={classes.container}>
       <Header />
