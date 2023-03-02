@@ -1,0 +1,49 @@
+.employeeRow {
+  background-color: white;
+  padding: 0.5rem 0rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #c1b7c2;
+  margin-top: 0.5rem;
+}
+
+.employeeRow * {
+  flex-basis: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.manageEmployee {
+  display: inline;
+  align-items: center;
+}
+
+.link {
+  display: inline;
+  margin-right: 0.5rem;
+  padding: 0;
+}
+
+.iconLinkEdit {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline;
+  transition: 300ms;
+}
+
+.iconLinkDelete {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline;
+  transition: 300ms;
+}
+
+.iconLinkEdit:hover {
+  filter: invert(45%) sepia(88%) saturate(296%) hue-rotate(121deg)
+    brightness(99%) contrast(91%);
+}
+
+.iconLinkDelete:hover {
+  filter: invert(24%) sepia(92%) saturate(1664%) hue-rotate(331deg)
+    brightness(116%) contrast(98%);
+}

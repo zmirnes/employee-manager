@@ -1,0 +1,17 @@
+.employeesList {
+  margin-top: 1rem;
+  background-color: white;
+  padding: 1rem 1rem;
+}
+
+.employeeListHeader {
+  display: flex;
+  padding: 0.5rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.employeeListHeader * {
+  flex-basis: 20%;
+  font-weight: bold;
+}
