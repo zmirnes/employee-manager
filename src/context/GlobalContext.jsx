@@ -46,7 +46,7 @@ export const GlobalContextProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-        users: state.users,
+        users: state.users ? state.users : "No entries",
         addEmployee: addEmployee,
         removeEmployee: removeEmployee,
       }}
