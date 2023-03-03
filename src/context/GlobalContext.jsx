@@ -1,4 +1,4 @@
-import { onValue, ref, set } from "firebase/database";
+import { onValue, ref, remove, set } from "firebase/database";
 import { createContext, useEffect, useState } from "react";
 
 import db from "./Firebase";
@@ -11,7 +11,7 @@ export const GlobalContextProvider = ({ children }) => {
   useEffect(() => {
     onValue(ref(db, "employees"), (snapshot) => {
       if (snapshot.val() === null) {
-        return;
+        setEmployees(() => []);
       } else {
         setEmployees(() => Object.values(snapshot.val()));
       }
@@ -22,8 +22,14 @@ export const GlobalContextProvider = ({ children }) => {
     set(ref(db, `employees/${employee.id}`), employee);
   };
 
+  const removeEmployee = (id) => {
+    remove(ref(db, `employees/${id}`));
+  };
+
   return (
-    <GlobalContext.Provider value={{ employees: employees, addEmployee }}>
+    <GlobalContext.Provider
+      value={{ employees: employees, addEmployee, removeEmployee }}
+    >
       {children}
     </GlobalContext.Provider>
   );
