@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 const EmployeesList = () => {
-  const { users } = useContext(GlobalContext);
+  const { employees } = useContext(GlobalContext);
   return (
     <div className={classes.employeesList}>
       <div className={classes.employeeListHeader}>
@@ -14,8 +14,8 @@ const EmployeesList = () => {
         <span>Satnica</span>
         <span>Akcije</span>
       </div>
-      {users.map((user) => (
-        <EmployeeRow key={user.id} user={user} />
+      {employees.map((employee) => (
+        <EmployeeRow key={employee.id} user={employee} />
       ))}
     </div>
   );

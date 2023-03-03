@@ -1,56 +1,29 @@
-import { createContext, useReducer } from "react";
-import ReducerApp from "./ReducerApp";
+import { onValue, ref, set } from "firebase/database";
+import { createContext, useEffect, useState } from "react";
 
-// Ovaj initialStorage sluzi samo za izgradnju aplikacije dok se ne napravi funkcija kreiranja korisnika
+import db from "./Firebase";
 
-// const initialStorage = {
-//   users: [
-//     {
-//       id: 1,
-//       name: "Mirnes Zahirović",
-//       position: "CNC Operater",
-//       hourlyRate: 10,
-//       startedWorking: "08.01.2018",
-//     },
-//   ],
-// };
-
-// Postavljanje korisnika u localStorage
-// localStorage.setItem("1", JSON.stringify(initialStorage));
-
-// Povlacenje korisnika iz localStorage
-
-const initialState = JSON.parse(localStorage.getItem("1"));
-
-// Kreiranje globalnog contexta
-
-export const GlobalContext = createContext(initialState);
-
-/* Kreiranje providera u kojem se nalazi reducer funkcija koja nam sluzi 
-za pozivanje svih funkcija unutar aplikacije (kreiranje korisnika, uređivanje, brisanje)*/
+export const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(ReducerApp, initialState);
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    onValue(ref(db, "employees"), (snapshot) => {
+      if (snapshot.val() === null) {
+        return;
+      } else {
+        setEmployees(() => Object.values(snapshot.val()));
+      }
+    });
+  }, []);
 
   const addEmployee = (employee) => {
-    dispatch({ type: "ADD_EMPLOYEE", payload: employee });
-  };
-
-  const removeEmployee = (id) => {
-    dispatch({
-      type: "REMOVE_EMPLOYEE",
-      payload: id,
-    });
+    set(ref(db, `employees/${employee.id}`), employee);
   };
 
   return (
-    <GlobalContext.Provider
-      value={{
-        users: state.users ? state.users : "No entries",
-        addEmployee: addEmployee,
-        removeEmployee: removeEmployee,
-      }}
-    >
+    <GlobalContext.Provider value={{ employees: employees, addEmployee }}>
       {children}
     </GlobalContext.Provider>
   );

@@ -3,25 +3,25 @@ import classes from "./AddEmployeeForm.module.css";
 import { Link } from "react-router-dom";
 import { useContext, useRef } from "react";
 import { GlobalContext } from "../context/GlobalContext";
+import { uid } from "uid";
 
 const AddEmployeeForm = () => {
-  const ctx = useContext(GlobalContext);
-
   const name = useRef();
   const date = useRef();
   const position = useRef();
   const hourlyRate = useRef();
 
+  const { addEmployee } = useContext(GlobalContext);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    const data = {
-      id: Math.floor(Math.random() * 10000000),
+    addEmployee({
+      id: uid(),
       name: name.current.value,
       startedWorking: new Date(date.current.value).toLocaleDateString(),
       position: position.current.value,
       hourlyRate: hourlyRate.current.value,
-    };
-    ctx.addEmployee(data);
+    });
   };
 
   return (
