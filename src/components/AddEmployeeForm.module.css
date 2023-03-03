@@ -54,3 +54,9 @@ input:focus {
   color: white;
   background-color: #fd384d;
 }
+
+@media only screen and (max-width: 596px) {
+  .form {
+    width: 90%;
+  }
+}
