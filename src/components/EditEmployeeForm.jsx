@@ -43,7 +43,15 @@ const EditEmployeeForm = (props) => {
   };
 
   const formatDate = (date) => {
-    const format = date.split("/").reverse().join("-");
+    let format;
+
+    if (date.includes("/")) {
+      format = date.split("/").reverse().join("-");
+    } else if (date.includes("-")) {
+      format = date.split("-").reverse().join("-");
+    } else if (date.includes(".")) {
+      format = date.split(".").reverse().join("-");
+    }
 
     const newDate = new Date(format);
 
