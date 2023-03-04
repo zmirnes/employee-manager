@@ -8,7 +8,7 @@
   Opseg projekta:
 </h1>
 <p>
-  EmployeeManager aplikacija omogućava korisnicima da dodaju, uređuju i brišu zaposlene radnike. Svaki zaposleni ima nekoliko osnovnih podataka, kao što su ime, prezime, pozicija i godine iskustva.
+  EmployeeManager aplikacija omogućava korisnicima da dodaju, uređuju i brišu zaposlene radnike. Svaki zaposleni ima nekoliko osnovnih podataka, kao što su ime, prezime, pozicija i vrijeme zaposlenja.
 </p>
 
 
@@ -48,7 +48,7 @@ Aplikacija je potpuno responzivna, što znači da se automatski prilagođava raz
 <h1>Pokretanje aplikacije
 </h1>
 <p>
-  Aplikacija se pokreće pristupom linku <a href="https://emanager.netlify.app">https://emanager.netlify.app</a>
+  Aplikacija se pokreće pristupom linku <a href="https://emanager.netlify.app" target="_blank">https://emanager.netlify.app</a>
 </p>
 
 
