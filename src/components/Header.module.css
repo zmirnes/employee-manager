@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
@@ -20,4 +22,14 @@
   text-decoration: none;
   color: white;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 396px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .addBtn {
+    padding: 0.5rem 0.8rem;
+  }
 }

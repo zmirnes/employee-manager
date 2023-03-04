@@ -1,7 +1,22 @@
 .employeesList {
-  margin-top: 1rem;
   background-color: white;
   padding: 1rem 1rem;
+  height: 80vh;
+  width: 98%;
+  margin: 1rem auto;
+  overflow-y: scroll;
+}
+
+.employeesList::-webkit-scrollbar {
+  width: 10px;
+}
+
+.employeesList::-webkit-scrollbar-thumb {
+  background-color: #349f8e;
+  border-radius: 50px;
+}
+.employeesList::-webkit-scrollbar-track {
+  background-color: white;
 }
 
 .employeeListHeader {
@@ -14,4 +29,25 @@
 .employeeListHeader * {
   flex-basis: 20%;
   font-weight: bold;
+  white-space: nowrap;
+}
+
+.message {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  span:last-child {
+    flex-basis: 15%;
+  }
+
+  .mobileHidden {
+    display: none;
+  }
 }

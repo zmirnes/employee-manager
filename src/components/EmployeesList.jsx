@@ -5,18 +5,23 @@ import { GlobalContext } from "../context/GlobalContext";
 
 const EmployeesList = () => {
   const { employees } = useContext(GlobalContext);
-  return (
+  const numberOfEmployees = employees.length;
+  return numberOfEmployees > 0 ? (
     <div className={classes.employeesList}>
       <div className={classes.employeeListHeader}>
         <span>Ime i prezime</span>
-        <span>Radi od</span>
-        <span>Pozicija</span>
-        <span>Satnica</span>
+        <span className={classes.mobileHidden}>Radi od</span>
+        <span className={classes.mobileHidden}>Pozicija</span>
+        <span className={classes.mobileHidden}>Satnica</span>
         <span>Akcije</span>
       </div>
       {employees.map((employee) => (
         <EmployeeRow key={employee.id} user={employee} />
       ))}
+    </div>
+  ) : (
+    <div className={classes.message}>
+      Trenutno nema zaposlenika u vašoj kompaniji.{" "}
     </div>
   );
 };

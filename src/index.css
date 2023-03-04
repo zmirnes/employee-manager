@@ -4,8 +4,17 @@
   box-sizing: border-box;
   font-family: "Lato";
   line-height: 1;
+  white-space: nowrap;
 }
 
 body {
   background-color: #f0f0f3;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  cursor: pointer;
 }

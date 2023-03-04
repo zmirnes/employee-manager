@@ -11,6 +11,7 @@
   flex-basis: 20%;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .manageEmployee {
@@ -46,4 +47,33 @@
 .iconLinkDelete:hover {
   filter: invert(24%) sepia(92%) saturate(1664%) hue-rotate(331deg)
     brightness(116%) contrast(98%);
+}
+
+.detailsBtn {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .manageEmployee {
+    flex-basis: 15%;
+  }
+
+  .detailsBtn {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: #349f8e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+  }
+
+  .mobileHidden {
+    display: none;
+  }
+
+  .link {
+    display: none;
+  }
 }

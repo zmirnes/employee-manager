@@ -6,16 +6,25 @@ import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 const EmployeeRow = (props) => {
-  const { removeEmployee } = useContext(GlobalContext);
+  const { removeEmployee, showMessageHandler } = useContext(GlobalContext);
 
   return (
     <div className={classes.employeeRow}>
       <span className={classes.employeeData}>{props.user.name}</span>
-      <span className={classes.employeeData}>{props.user.startedWorking}</span>
-      <span className={classes.employeeData}>{props.user.position}</span>
-      <span className={classes.employeeData}>{props.user.hourlyRate} BAM</span>
+      <span className={`${classes.employeeData} ${classes.mobileHidden}`}>
+        {props.user.startedWorking}
+      </span>
+      <span className={`${classes.employeeData} ${classes.mobileHidden}`}>
+        {props.user.position}
+      </span>
+      <span className={`${classes.employeeData} ${classes.mobileHidden}`}>
+        {props.user.hourlyRate} BAM
+      </span>
       <div className={classes.manageEmployee}>
-        <Link to="/" className={classes.link}>
+        <Link to={`/view/${props.user.id}`} className={classes.detailsBtn}>
+          Detalji
+        </Link>
+        <Link to={`/edit/${props.user.id}`} className={classes.link}>
           <img src={editIcon} alt="Edit" className={classes.iconLinkEdit} />
         </Link>
         <Link
@@ -24,6 +33,7 @@ const EmployeeRow = (props) => {
           onClick={(e) => {
             e.preventDefault();
             removeEmployee(props.user.id);
+            showMessageHandler(`${props.user.name} uspješno izbrisan!`);
           }}
         >
           <img

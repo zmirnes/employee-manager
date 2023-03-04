@@ -1,0 +1,100 @@
+.container {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.employeeCard {
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.employeeDetail {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f3;
+  padding-bottom: 1rem;
+}
+
+.title {
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.value {
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.editBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #349f8e;
+  color: white;
+  text-decoration: none;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fd384d;
+  padding: 0.7rem 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1268px) {
+  .employeeCard {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 1048px) {
+  .employeeCard {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .employeeCard {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 569px) {
+  .employeeCard {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 469px) {
+  .employeeCard {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 369px) {
+  .employeeCard {
+    width: 95%;
+  }
+}
