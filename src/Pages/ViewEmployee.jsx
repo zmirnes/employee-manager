@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import classes from "./ViewEmployee.module.css";
 import Header from "../components/Header";
 import { Link, useParams } from "react-router-dom";
@@ -22,7 +22,7 @@ const ViewEmployee = () => {
         });
       }
     });
-  }, []);
+  }, [id, loading]);
 
   return (
     <Fragment>
