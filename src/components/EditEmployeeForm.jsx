@@ -25,7 +25,7 @@ const EditEmployeeForm = (props) => {
     } else {
       editEmployee(employee);
       showMessageHandler("Zaposlenik uspješno uređen!");
-      navigate("/");
+      navigate(-1);
     }
   };
 

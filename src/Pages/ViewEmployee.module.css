@@ -66,6 +66,19 @@
   text-decoration: none;
 }
 
+.deleteBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fd384d;
+  padding: 0.7rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+
 .message {
   width: 100%;
   min-height: 90vh;

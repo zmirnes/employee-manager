@@ -1,16 +1,25 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import classes from "./ViewEmployee.module.css";
 import Header from "../components/Header";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import db from "../context/Firebase";
 import { ref, onValue } from "firebase/database";
 import { useList } from "react-firebase-hooks/database";
+import { GlobalContext } from "../context/GlobalContext";
 
 const ViewEmployee = () => {
   const { id } = useParams("id");
   const [employee, setEmployee] = useState();
   const [noUser, setNoUser] = useState(false);
   const [, loading] = useList(ref(db, "employees"));
+  const navigate = useNavigate();
+
+  const { removeEmployee } = useContext(GlobalContext);
+
+  const removeEmployeeHandler = () => {
+    navigate("/");
+    removeEmployee(employee.id);
+  };
 
   useEffect(() => {
     onValue(ref(db, `employees/${id}`), (snapshot) => {
@@ -51,6 +60,12 @@ const ViewEmployee = () => {
               <Link to={`/edit/${id}`} className={classes.editBtn}>
                 Uredi
               </Link>
+              <button
+                className={classes.deleteBtn}
+                onClick={removeEmployeeHandler}
+              >
+                Izbriši
+              </button>
               <Link to={"/"} className={classes.closeBtn}>
                 Nazad
               </Link>
